@@ -1,10 +1,13 @@
+:root {
+  --primary-color: #fb830c;
+  --secondary-color: #0662a0;
+  --complimentary-color: rgb(156, 241, 252);
+  --font-size: 16px;
+}
+
 body {
   margin: 0;
   font-family: "Teko", sans-serif;
   font-optical-sizing: auto;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
