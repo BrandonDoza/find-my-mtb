@@ -18,4 +18,10 @@ describe('Home Page', () => {
       cy.contains('FAQ');
     });
   });
+  it('Should navigate to the all bikes page and display all bikes', () => {
+    cy.get('.link').contains('All Bikes').click()
+    cy.get('.bikes-display').find('.bike-card').should('have.length', 5)
+    cy.get('.bike-card').first().contains('Hightower')
+    cy.get('.bike-card').last().contains('Exie')
+  })
 });

@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import { Router, Link, NavLink } from "react-router-dom"
+import { Router, Link, NavLink, Routes, Route } from "react-router-dom"
 import Header from "../Header/Header"
 import { fetchBikes } from '../../apiCalls';
+import  AllBikes from '../AllBikes/AllBikes'
 
 function App() {
   const [allBikes, setAllBikes] = useState(['here'])
@@ -12,7 +13,7 @@ function App() {
     try {
       const fetchedData = await fetchBikes()
       console.log('fetch', fetchedData)
-      setAllBikes(fetchedData)
+      setAllBikes(fetchedData.bikes)
     }
     catch(error) {
       console.log(error)
@@ -24,6 +25,9 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <Routes>
+        <Route path="/bikes/allbikes" element={<AllBikes allBikes={allBikes} />} />
+      </Routes>
     </div>
   );
 }

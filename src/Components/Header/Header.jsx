@@ -10,7 +10,7 @@ export default function Header() {
         </NavLink>
         </div>
         <nav className="nav-bar">
-        <NavLink to="/allbikes" className="link">
+        <NavLink to="/bikes/allbikes" className="link">
             <h2>All Bikes</h2>
         </NavLink>
         <NavLink to="/mybikes" className="link">
