@@ -13,7 +13,7 @@ function App() {
     try {
       const fetchedData = await fetchBikes()
       console.log('fetch', fetchedData)
-      setAllBikes(fetchedData)
+      setAllBikes(fetchedData.bikes)
     }
     catch(error) {
       console.log(error)
@@ -26,7 +26,7 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/bikes/allbikes" element={<AllBikes />} />
+        <Route path="/bikes/allbikes" element={<AllBikes allBikes={allBikes} />} />
       </Routes>
     </div>
   );
