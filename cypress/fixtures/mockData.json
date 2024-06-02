@@ -1,0 +1,73 @@
+{
+    "bikes": [
+    {
+    "id": 1,
+    "make": "Santa Cruz",
+    "model": "Hightower",
+    "suspensionTravel": 150,
+    "wheelSize": "29",
+    "ridingStyle": "Trail",
+    "terrain": "Rocky chunky and technical",
+    "skillLevel": "Beginner Intermediate",
+    "price": 5099,
+    "imageUrl": "https://www.santacruzbicycles.com/_next/image?url=https%3A%2F%2Fimages.prismic.io%2Fsantacruzbikesstatic%2F3007f469-644f-47dd-9adb-b568905673b8_MY24_HT_Red.jpg%3Fauto%3Dcompress%2Cformat&w=1400&q=99",
+    "description": "Big on wheels, medium on travel, short on fuss, this is the do-it-all bike that does it over and over again thanks to a versatile balance of geo, spec and durability.",
+    "favorite": false
+    },
+    {
+    "id": 2,
+    "make": "Santa Cruz",
+    "model": "Tallboy",
+    "suspensionTravel": 120,
+    "wheelSize": "29",
+    "ridingStyle": "Trail",
+    "terrain": "Smooth and flowy with some technical rocks",
+    "skillLevel": "Beginner Intermediate",
+    "price": 4899,
+    "imageUrl": "https://www.santacruzbicycles.com/_next/image?url=https%3A%2F%2Fimages.prismic.io%2Fsantacruzbikesstatic%2F6dc56878-5e6d-4e5a-a67b-e33534018ab4_MY24_TB_Orange.jpg%3Fauto%3Dcompress%2Cformat&w=1400&q=99",
+    "description": "The Tallboy has earned a loyal following amongst those who seek a go-to bike that will hold up to the relentless hammering of power hour rides or riding for all-the-hours.",
+    "favorite": false
+    },
+    {
+    "id": 3,
+    "make": "Santa Cruz",
+    "model": "Nomad",
+    "suspensionTravel": 170,
+    "wheelSize": "MX 29/27.5",
+    "ridingStyle": "Enduro",
+    "terrain": "Rocky chunky and technical",
+    "skillLevel": "Intermediate Advanced",
+    "price": 4999,
+    "description": "Load up the van, hit the road, climb a mountain, hammer it back down, huck the gap, throw the bike back in the van, drive to the bike park and do laps on laps. Hell, you could even rock up to the startline of the world's wildest races.",
+    "imageUrl": "https://www.santacruzbicycles.com/_next/image?url=https%3A%2F%2Fimages.prismic.io%2Fsantacruzbikesstatic%2Fd2cfaf5e-61fe-4fa3-b335-9bccacc38bbd_MY24_Nomad_Blue.jpg%3Fauto%3Dcompress%2Cformat&w=1400&q=99",
+    "favorite": false
+    },
+    {
+    "id": 4,
+    "make": "Santa Cruz",
+    "model": "Blur",
+    "suspensionTravel": 100,
+    "wheelSize": "29",
+    "ridingStyle": "Cross-Country",
+    "terrain": "Race Course",
+    "skillLevel": "Intermediate Advanced",
+    "price": 5099,
+    "description": "We tapped into everything we’ve learned from years of making the highest quality carbon full-suspension bikes and added the super-efficient Superlight™ suspension to make a World Cup-winning XC race bike. The Blur isn’t guaranteed to make you a race winner but being the lightest, full-suspension carbon XC bike we’ve ever made, it might be the difference between claiming first place...or just crossing the line.",
+    "imageUrl": "https://www.santacruzbicycles.com/_next/image?url=https%3A%2F%2Fimages.prismic.io%2Fsantacruzbikesstatic%2F52baacaf-e92f-4001-ade5-33de28d7c034_MY24_blur_silver.jpg%3Fauto%3Dcompress%2Cformat&w=1400&q=99",
+    "favorite": false
+    },
+    {
+    "id": 5,
+    "make": "Ibis",
+    "model": "Exie",
+    "suspensionTravel": 100,
+    "wheelSize": "29",
+    "ridingStyle": "Cross Country",
+    "terrain": "Race Course",
+    "skillLevel": "Intermediate Advanced",
+    "price": 6999,
+    "description": "The Exie USA is a World-Cup winning cross-country race bike that flat out shreds. With a sub 2,000g frame weight and dw-link suspension, it offers a stunning combination of pedaling efficiency and downhill performance. We designed, built, and test­ed it in our Santa Cruz factory, which is pow­ered by the warm Cal­i­for­nia sunshine.",
+    "imageUrl": "https://assets-ibiscycles-com.s3.amazonaws.com/images/Bikes/Exie-USA-Rebrand/exie-usa-rebrand-1400-build-xt.png",
+    "favorite": false
+    }
+]}
