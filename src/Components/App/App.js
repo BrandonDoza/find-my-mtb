@@ -1,8 +1,26 @@
+import { useState, useEffect } from 'react';
 import './App.css';
 import { Router, Link, NavLink } from "react-router-dom"
-import Header from "./Components/Header/Header"
+import Header from "../Header/Header"
+import { fetchBikes } from '../../apiCalls';
 
 function App() {
+  const [allBikes, setAllBikes] = useState(['here'])
+  // console.log('all', allBikes)
+  useEffect(() =>  {
+  async function loadData() {
+    try {
+      const fetchedData = await fetchBikes()
+      console.log('fetch', fetchedData)
+      setAllBikes(fetchedData)
+    }
+    catch(error) {
+      console.log(error)
+    }
+  }
+  loadData()
+}, [])
+
   return (
     <div className="App">
       <Header />
