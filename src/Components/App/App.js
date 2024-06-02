@@ -4,6 +4,7 @@ import { Router, Link, NavLink, Routes, Route } from "react-router-dom"
 import Header from "../Header/Header"
 import { fetchBikes } from '../../apiCalls';
 import  AllBikes from '../AllBikes/AllBikes'
+import Main from '../MainPage/MainPage';
 
 function App() {
   const [allBikes, setAllBikes] = useState(['here'])
@@ -26,6 +27,7 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
+        <Route path="/" element={<Main />} />
         <Route path="/bikes/allbikes" element={<AllBikes allBikes={allBikes} />} />
       </Routes>
     </div>
