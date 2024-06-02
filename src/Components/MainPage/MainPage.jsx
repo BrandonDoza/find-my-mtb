@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import AllBikes from "../AllBikes/AllBikes";
+import "./MainPage.css"
 
 export default function Main({ allBikes }) {
     const [filteredBikes, setFilteredBikes] = useState([])
@@ -59,6 +61,9 @@ export default function Main({ allBikes }) {
                     <option value="Park">Bike Park</option>
                 </select>
             </form>
+            <div className="filtered-bikes-display">
+                {<AllBikes allBikes={filteredBikes} />} 
+            </div>
         </div>
     )
 }
