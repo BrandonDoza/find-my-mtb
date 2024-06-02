@@ -27,7 +27,7 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Main allBikes={allBikes} />} />
         <Route path="/bikes/allbikes" element={<AllBikes allBikes={allBikes} />} />
       </Routes>
     </div>
