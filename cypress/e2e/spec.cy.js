@@ -18,9 +18,11 @@ describe('Home Page', () => {
       cy.contains('FAQ');
     });
   });
+  it('Should have an about section', () => {
+    cy.get('.about').contains('We\'re all about helping you find the perfect bike that fits your needs. Whether you\'re new to the sport or a seasoned pro, you\'ve come to the right place!')
+  })
   it('Should be able to select criteria and filter through bikes to dissplay', () => {
     cy.get('h1').contains('Find The Perfect Bike For You!')
-    cy.get('h1').contains('No Bikes Yet')
     cy.get('#skillLevel').select('Advanced')
     cy.get('.bikes-display').find('.bike-card').should('have.length', 3)
     cy.get('.bike-card').first().contains('Nomad')

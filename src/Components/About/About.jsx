@@ -1,5 +1,4 @@
 import "./About.css"
-// import backgroundImage from "../src/image-assets/Westridge1.jpg"
 
 export default function About() {
     return (
