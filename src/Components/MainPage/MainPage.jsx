@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import AllBikes from "../AllBikes/AllBikes";
+import BikesDisplay from "../BikesDisplay/BikesDisplay"
 import "./MainPage.css"
 
 export default function Main({ allBikes }) {
@@ -27,21 +27,27 @@ export default function Main({ allBikes }) {
     const selectedName = e.target.name
     setPullDownData((prevData) => {
         return {...prevData,
-            [pullDownData.selectedName]: selectedValue
+            [selectedName]: selectedValue
         }
    })
    filterBikes(selectedName, selectedValue)
 }
 
+function handleSubmit(e) {
+    e.preventDefault();
+}
+
     return (
         <div className="main-page">
             <h1>Find The Perfect Bike For You!</h1>
-            <form className="search-form">
+            <form className="search-form" onSubmit={handleSubmit}>
                 <select
                 id="skillLevel"
                 value={pullDownData.skillLevel}
                 name="skillLevel"
-                onChange={handleChange}
+                onChange={(e) => {
+                    e.preventDefault()
+                    handleChange(e)}}
                 >
                     <option value="">Choose Your Skill Level</option>
                     <option value="Beginner">Beginner</option>
@@ -62,7 +68,7 @@ export default function Main({ allBikes }) {
                 </select>
             </form>
             <div className="filtered-bikes-display">
-                {<AllBikes allBikes={filteredBikes} />} 
+                {filteredBikes.length === 0 ? <h1>No Bikes Yet</h1> : <BikesDisplay allBikes={filteredBikes} />} 
             </div>
         </div>
     )

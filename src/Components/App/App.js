@@ -3,7 +3,7 @@ import './App.css';
 import { Router, Link, NavLink, Routes, Route } from "react-router-dom"
 import Header from "../Header/Header"
 import { fetchBikes } from '../../apiCalls';
-import  AllBikes from '../AllBikes/AllBikes'
+import BikesDisplay from '../BikesDisplay/BikesDisplay'
 import Main from '../MainPage/MainPage';
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Main allBikes={allBikes} />} />
-        <Route path="/bikes/allbikes" element={<AllBikes allBikes={allBikes} />} />
+        <Route path="/bikes/allbikes" element={<BikesDisplay allBikes={allBikes} />} />
       </Routes>
     </div>
   );
