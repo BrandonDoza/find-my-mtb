@@ -31,7 +31,7 @@ export default function BikeDetail() {
             <h3 className="bike-stats">{`Price: $${price}`}</h3>
             <img src={imageUrl} alt={`mountain bike ${make} ${model}`} className="bike-detail-image"/>
             <h4 className="bike-stats">{`Rider Skill Level: ${skillLevel}`}</h4>
-            <h4 className="bike-stats">{`Terrain Suited For: ${terrain} Terrain - ${ridingStyle} Riding`}</h4>
+            <h4 className="bike-stats">{`Terrain Suited For: ${terrain} - ${ridingStyle} Riding`}</h4>
             <p className="bike-description">{description}</p>
         </div>
     )
