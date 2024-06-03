@@ -1,0 +1,14 @@
+{
+    "bike": {
+      "make": "Santa Cruz",
+      "model": "Hightower",
+      "suspensionTravel": "140mm",
+      "wheelSize": "29",
+      "description": "A versatile trail bike.",
+      "imageUrl": "https://www.santacruzbicycles.com/_next/image?url=https%3A%2F%2Fimages.prismic.io%2Fsantacruzbikesstatic%2F3007f469-644f-47dd-9adb-b568905673b8_MY24_HT_Red.jpg%3Fauto%3Dcompress%2Cformat&w=1400&q=99",
+      "ridingStyle": "Trail",
+      "skillLevel": "Intermediate",
+      "terrain": "All Mountain",
+      "price": 2999
+    }
+  }

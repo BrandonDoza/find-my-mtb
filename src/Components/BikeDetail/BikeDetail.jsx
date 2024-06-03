@@ -20,6 +20,9 @@ export default function BikeDetail() {
         loadBike()
     }, [])
     console.log(bike, 'bike')
+    if (!bike) {
+        return <div>Loading...</div>;
+    }
     const {make, model, suspensionTravel, wheelSize, description, imageUrl,
         ridingStyle, skillLevel, terrain, price} = bike
     return (
