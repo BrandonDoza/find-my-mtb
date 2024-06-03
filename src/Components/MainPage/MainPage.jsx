@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import BikesDisplay from "../BikesDisplay/BikesDisplay"
 import "./MainPage.css"
+import About from '../About/About';
 
 export default function Main({ allBikes }) {
     const [filteredBikes, setFilteredBikes] = useState([])
@@ -68,7 +69,7 @@ function handleSubmit(e) {
                 </select>
             </form>
             <div className="filtered-bikes-display">
-                {filteredBikes.length === 0 ? <h1>No Bikes Yet</h1> : <BikesDisplay allBikes={filteredBikes} />} 
+                {filteredBikes.length === 0 ? <About /> : <BikesDisplay allBikes={filteredBikes} />} 
             </div>
         </div>
     )
