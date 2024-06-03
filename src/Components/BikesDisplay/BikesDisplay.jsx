@@ -1,11 +1,12 @@
 import BikeCard from "../BikeCard/BikeCard"
 import "./BikesDisplay.css"
+import { NavLink } from "react-router-dom"
 
 export default function AllBikes({allBikes}) {
     const bikesToDisplay = allBikes.map(bike => {
         return (
+            <NavLink to={`/bikes/${bike.id}`} key={bike.id} className="link">
             <BikeCard
-            key={bike.id}
             id={bike.id}
             make={bike.make}
             model={bike.model}
@@ -13,6 +14,7 @@ export default function AllBikes({allBikes}) {
             suspensionTravel={bike.suspensionTravel}
             price={bike.price}
              />
+            </NavLink>
         )
     })
     return (

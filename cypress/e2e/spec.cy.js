@@ -3,8 +3,12 @@ describe('Home Page', () => {
     cy.visit('http://localhost:3000');
     cy.intercept('GET', 'http://localhost:3001/api/v1/bikes', {
       statusCode: 200,
-      fixture: './mockdata.json'
+      fixture: 'mockdata.json'
     });
+    cy.intercept('GET', 'http://localhost:3001/api/v1/bikes/1', {
+      statusCode: 200,
+      fixture: 'singleBike.json'
+    })
   });
   it('Successfully Loads', () => {
     cy.visit('http://localhost:3000');
@@ -19,9 +23,9 @@ describe('Home Page', () => {
     });
   });
   it('Should have an about section', () => {
-    cy.get('.about').contains('We\'re all about helping you find the perfect bike that fits your needs. Whether you\'re new to the sport or a seasoned pro, you\'ve come to the right place!')
+    cy.get('.about-card').contains('We\'re all about helping you find the perfect bike to fit your needs. Whether you\'re new to the sport or a seasoned pro, you\'ve come to the right place!')
   })
-  it('Should be able to select criteria and filter through bikes to dissplay', () => {
+  it('Should be able to select criteria and filter through bikes to display', () => {
     cy.get('h1').contains('Find The Perfect Bike For You!')
     cy.get('#skillLevel').select('Advanced')
     cy.get('.bikes-display').find('.bike-card').should('have.length', 3)
@@ -33,5 +37,11 @@ describe('Home Page', () => {
     cy.get('.bikes-display').find('.bike-card').should('have.length', 5)
     cy.get('.bike-card').first().contains('Hightower')
     cy.get('.bike-card').last().contains('Exie')
+  })
+  it('Should be able to click on a bike card and see details about that bike', () => {
+    cy.get('.link').contains('All Bikes').click()
+    cy.get('.bike-card').first().click()
+    cy.get('.bike-make').contains('Santa Cruz')
+    cy.get('.bike-model').contains('Hightower')
   })
 });

@@ -1,0 +1,39 @@
+.bike-detail {
+    width: 75%;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+  }
+  
+  .bike-make {
+    font-size: 4em;
+  }
+  
+  .bike-model {
+  font-size: 2.5em;
+  }
+  
+  .bike-stats {
+    width: 70%;
+    font-size: 1.5em;
+    margin: 5px;
+    color: var(--secondary-color)
+  }
+  
+  .bike-detail-image {
+    width: 600px;
+    height: 400px;
+    object-fit: cover;
+  }
+  
+  .bike-description {
+    font-weight: 500;
+    font-size: 1.5em;
+    margin: 30px;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+  }
+  
