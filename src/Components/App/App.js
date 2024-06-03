@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import { Router, Link, NavLink, Routes, Route } from "react-router-dom"
+import { useParams, Routes, Route } from "react-router-dom"
 import Header from "../Header/Header"
 import { fetchBikes } from '../../apiCalls';
 import BikesDisplay from '../BikesDisplay/BikesDisplay'
 import Main from '../MainPage/MainPage';
+import BikeDetail from '../BikeDetail/BikeDetail';
 
 function App() {
   const [allBikes, setAllBikes] = useState(['here'])
@@ -29,6 +30,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main allBikes={allBikes} />} />
         <Route path="/bikes/allbikes" element={<BikesDisplay allBikes={allBikes} />} />
+        <Route path="/bikes/:id" element={<BikeDetail />}/>
       </Routes>
     </div>
   );

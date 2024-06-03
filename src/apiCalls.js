@@ -14,6 +14,22 @@ export async function fetchBikes() {
     }
 }
 
+export async function fetchSingleBike(id) {
+    try {
+        let response = await fetch(`http://localhost:3001/api/v1/bikes/${id}`)
+        if (!response.ok) {
+            throw new Error('The bike you requested could not be found')
+        }
+        let data = await response.json()
+        
+        return data
+    }
+    catch(error) {
+        console.log(error)
+        throw error
+    }
+}
+
 export async function postBike(dataToPost) {
     try {
         let response = await fetch('http://localhost:3001/api/v1/bikes', {
