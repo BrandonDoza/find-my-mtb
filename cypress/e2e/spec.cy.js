@@ -18,6 +18,14 @@ describe('Home Page', () => {
       cy.contains('FAQ');
     });
   });
+  it('Should be able to select criteria and filter through bikes to dissplay', () => {
+    cy.get('h1').contains('Find The Perfect Bike For You!')
+    cy.get('h1').contains('No Bikes Yet')
+    cy.get('#skillLevel').select('Advanced')
+    cy.get('.bikes-display').find('.bike-card').should('have.length', 3)
+    cy.get('.bike-card').first().contains('Nomad')
+    cy.get('.bike-card').last().contains('Ibis')
+  })
   it('Should navigate to the all bikes page and display all bikes', () => {
     cy.get('.link').contains('All Bikes').click()
     cy.get('.bikes-display').find('.bike-card').should('have.length', 5)
