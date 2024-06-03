@@ -1,5 +1,5 @@
 import BikeCard from "../BikeCard/BikeCard"
-import "./AllBikes.css"
+import "./BikesDisplay.css"
 
 export default function AllBikes({allBikes}) {
     const bikesToDisplay = allBikes.map(bike => {
