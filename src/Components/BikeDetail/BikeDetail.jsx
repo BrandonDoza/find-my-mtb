@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchSingleBike } from "../../apiCalls";
 import "./BikeDetail.css"
@@ -6,6 +6,12 @@ import "./BikeDetail.css"
 export default function BikeDetail() {
     const [bike, setBike] = useState({})
     const id = useParams().id
+    const navigate = useNavigate()
+    
+    function handleBack() {
+        navigate(-1)
+    }
+
     useEffect(() => {
         async function loadBike() {
             try {
@@ -19,7 +25,7 @@ export default function BikeDetail() {
         }
         loadBike()
     }, [])
-    console.log(bike, 'bike')
+
     if (!bike) {
         return <div>Loading...</div>;
     }
@@ -27,6 +33,9 @@ export default function BikeDetail() {
         ridingStyle, skillLevel, terrain, price} = bike
     return (
         <div className="bike-detail">
+            <Link className="close-button" onClick={handleBack}>
+            <box-icon color="#0662a0" name='window-close'size="lg"></box-icon>
+            </Link>
             <h1 className="bike-make">{make}</h1>
             <h2 className="bike-model">{model}</h2>
             <h3 className="bike-stats">{`Suspension Travel: ${suspensionTravel}`}</h3>

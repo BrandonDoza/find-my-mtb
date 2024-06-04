@@ -1,6 +1,6 @@
 .about-img {
-    width: 90%;
-    height: 600px;
+    width: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     background-image: url('http://localhost:3000/Westridge1.jpg');

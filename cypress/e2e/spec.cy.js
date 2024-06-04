@@ -38,10 +38,14 @@ describe('Home Page', () => {
     cy.get('.bike-card').first().contains('Hightower')
     cy.get('.bike-card').last().contains('Exie')
   })
-  it('Should be able to click on a bike card and see details about that bike', () => {
+  it('Should be able to click on a bike card and see details about that bike, and then close out of the bike detail by clicking the x, thus showing all bikes again.', () => {
     cy.get('.link').contains('All Bikes').click()
     cy.get('.bike-card').first().click()
     cy.get('.bike-make').contains('Santa Cruz')
     cy.get('.bike-model').contains('Hightower')
+    cy.get('.close-button').click()
+    cy.get('.bikes-display').find('.bike-card').should('have.length', 5)
+    cy.get('.bike-card').first().contains('Hightower')
+    cy.get('.bike-card').last().contains('Exie')
   })
 });
