@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { fetchSingleBike, updateFavorite } from "../../apiCalls";
 import "./BikeDetail.css"
 
-export default function BikeDetail() {
+export default function BikeDetail({addFavoriteBike}) {
     const [bike, setBike] = useState({})
     const id = useParams().id
     const navigate = useNavigate()
@@ -31,6 +31,7 @@ export default function BikeDetail() {
             const updatedBike = await updateFavorite(id)
             console.log(updatedBike.bike, 'update')
             setBike(updatedBike.bike)
+            addFavoriteBike(updatedBike.bike)
         }
         catch(error) {
             console.log(error)

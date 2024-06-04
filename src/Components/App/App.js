@@ -24,13 +24,28 @@ function App() {
   loadData()
 }, [])
 
+function addFavoriteBike(bikeToFind) {
+  const updatedBikes = allBikes.map(bike => {
+      if (bike.id === bikeToFind.id) {
+          return {
+              ...bike,
+              favorite: bike.favorite = !bike.favorite 
+          };
+      }
+      return bike;
+  });
+  setAllBikes(updatedBikes);
+  console.log(allBikes, 'allBikes');
+}
+
   return (
     <div className="App">
       <Header />
       <Routes>
         <Route path="/" element={<Main allBikes={allBikes} />} />
         <Route path="/bikes/allbikes" element={<BikesDisplay allBikes={allBikes} />} />
-        <Route path="/bikes/:id" element={<BikeDetail />}/>
+        <Route path="/bikes/:id" element={<BikeDetail addFavoriteBike={addFavoriteBike}/>}/>
+        <Route path="/bikes/mybikes" element={<BikesDisplay allBikes={allBikes} /> }/>
       </Routes>
     </div>
   );
