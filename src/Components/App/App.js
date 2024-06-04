@@ -63,4 +63,13 @@ bike should automatically go into favorites
 Need to have a toggle function to be able to favorite a bike - favorited bikes 
 should live in state in one of the components. spread it in [...pervBikes, newBike]
 - Deleting will be an extension. 
+
+need to have state that is bikes filtered by isFavorite
+need to update a bikes favorite if heart is clicked
+function toggleFavorite() {
+const favorite = bike.favorite ? false : true
+setBike({...bike,
+  isFavorite: favorite
+})
+}
 ) */

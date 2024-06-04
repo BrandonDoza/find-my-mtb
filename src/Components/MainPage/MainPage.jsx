@@ -11,8 +11,8 @@ export default function Main({ allBikes }) {
         terrain: ""
     })
     // const [terrain, setTerrain] = useState("")
-//    console.log('skill', skillLevel)
-//    console.log('terrain', terrain)
+   console.log('skill', pullDownData.skillLevel)
+   console.log('terrain', pullDownData.terrain)
    function filterBikes(name, value) {
     const bikesByFilter = allBikes.filter(bike => {
         console.log(bike[name], 'here')
