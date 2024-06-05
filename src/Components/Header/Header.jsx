@@ -13,10 +13,10 @@ export default function Header() {
         <NavLink to="/bikes/allbikes" className="link">
             <h2>All Bikes</h2>
         </NavLink>
-        <NavLink to="/mybikes" className="link">
+        <NavLink to="/bikes/mybikes" className="link">
             <h2>My Bikes</h2>
         </NavLink>
-        <NavLink to="/faq" className="link">
+        <NavLink to="/bikes/faq" className="link">
             <h2>FAQ</h2>
         </NavLink>
         </nav>

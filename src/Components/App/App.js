@@ -6,6 +6,7 @@ import { fetchBikes } from '../../apiCalls';
 import BikesDisplay from '../BikesDisplay/BikesDisplay'
 import Main from '../MainPage/MainPage';
 import BikeDetail from '../BikeDetail/BikeDetail';
+import MyBikes from '../MyBikes/MyBikes';
 
 function App() {
   const [allBikes, setAllBikes] = useState(['here'])
@@ -24,13 +25,28 @@ function App() {
   loadData()
 }, [])
 
+function addFavoriteBike(bikeToFind) {
+  const updatedBikes = allBikes.map(bike => {
+      if (bike.id === bikeToFind.id) {
+          return {
+              ...bike,
+              favorite: bike.favorite = !bike.favorite 
+          };
+      }
+      return bike;
+  });
+  setAllBikes(updatedBikes);
+  console.log(allBikes, 'allBikes');
+}
+
   return (
     <div className="App">
       <Header />
       <Routes>
         <Route path="/" element={<Main allBikes={allBikes} />} />
         <Route path="/bikes/allbikes" element={<BikesDisplay allBikes={allBikes} />} />
-        <Route path="/bikes/:id" element={<BikeDetail />}/>
+        <Route path="/bikes/:id" element={<BikeDetail addFavoriteBike={addFavoriteBike}/>}/>
+        <Route path="/bikes/mybikes" element={<MyBikes allBikes={allBikes} /> }/>
       </Routes>
     </div>
   );
@@ -63,4 +79,13 @@ bike should automatically go into favorites
 Need to have a toggle function to be able to favorite a bike - favorited bikes 
 should live in state in one of the components. spread it in [...pervBikes, newBike]
 - Deleting will be an extension. 
+
+need to have state that is bikes filtered by isFavorite
+need to update a bikes favorite if heart is clicked
+function toggleFavorite() {
+const favorite = bike.favorite ? false : true
+setBike({...bike,
+  isFavorite: favorite
+})
+}
 ) */

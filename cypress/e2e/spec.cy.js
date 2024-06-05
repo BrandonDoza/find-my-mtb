@@ -1,4 +1,4 @@
-describe('Home Page', () => {
+describe('Find My Mtb', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000');
     cy.intercept('GET', 'http://localhost:3001/api/v1/bikes', {
@@ -6,6 +6,10 @@ describe('Home Page', () => {
       fixture: 'mockdata.json'
     });
     cy.intercept('GET', 'http://localhost:3001/api/v1/bikes/1', {
+      statusCode: 200,
+      fixture: 'singleBike.json'
+    });
+    cy.intercept('PATCH', 'http://localhost:3001/api/v1/bikes/1', {
       statusCode: 200,
       fixture: 'singleBike.json'
     })
@@ -47,5 +51,17 @@ describe('Home Page', () => {
     cy.get('.bikes-display').find('.bike-card').should('have.length', 5)
     cy.get('.bike-card').first().contains('Hightower')
     cy.get('.bike-card').last().contains('Exie')
+  })
+  it('Should be able to favorote a bike, then view that favorite when my bikes link is clicked, and be able to remove it from favorites by clicking the heart icon again', () => {
+    cy.get('.link').contains('All Bikes').click()
+    cy.get('.bike-card').last().click()
+    cy.get('.bike-make').contains('Ibis')
+    cy.get('.bike-model').contains('Exie')
+    cy.get('.favorite-button').click()
+    cy.get('.link').contains('My Bikes').click()
+    cy.get('.bike-card').first().contains('Exie').click()
+    cy.get('.favorite-button').click()
+    cy.get('.link').contains('My Bikes').click()
+    cy.get('h1').contains('You Have No Bikes Yet, Go Add Some!')
   })
 });

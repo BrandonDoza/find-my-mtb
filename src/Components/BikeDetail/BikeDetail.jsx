@@ -1,9 +1,9 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { fetchSingleBike } from "../../apiCalls";
+import { fetchSingleBike, updateFavorite } from "../../apiCalls";
 import "./BikeDetail.css"
 
-export default function BikeDetail() {
+export default function BikeDetail({addFavoriteBike}) {
     const [bike, setBike] = useState({})
     const id = useParams().id
     const navigate = useNavigate()
@@ -16,7 +16,7 @@ export default function BikeDetail() {
         async function loadBike() {
             try {
                 const fetchedBike = await fetchSingleBike(id)
-                console.log('fetch', fetchedBike)
+                console.log('fetch', fetchedBike.bike)
                 setBike(fetchedBike.bike)
             }
             catch(error) {
@@ -24,18 +24,35 @@ export default function BikeDetail() {
             }
         }
         loadBike()
-    }, [])
+    }, [id])
+
+    async function toggleFavorite() {
+        try {
+            const updatedBike = await updateFavorite(id)
+            console.log(updatedBike.bike, 'update')
+            setBike(updatedBike.bike)
+            addFavoriteBike(updatedBike.bike)
+        }
+        catch(error) {
+            console.log(error)
+        }
+    }
 
     if (!bike) {
         return <div>Loading...</div>;
     }
     const {make, model, suspensionTravel, wheelSize, description, imageUrl,
-        ridingStyle, skillLevel, terrain, price} = bike
+        ridingStyle, skillLevel, terrain, price, favorite} = bike
     return (
         <div className="bike-detail">
-            <Link className="close-button" onClick={handleBack}>
+            <div className="button-nav">
+            <Link  className="close-button" onClick={handleBack}>
             <box-icon color="#0662a0" name='window-close'size="lg"></box-icon>
             </Link>
+            <Link className="favorite-button" onClick={toggleFavorite}>
+            <box-icon name='heart'size='lg' color={favorite ? "red" :  "#0662a0"}></box-icon>
+            </Link>
+            </div>
             <h1 className="bike-make">{make}</h1>
             <h2 className="bike-model">{model}</h2>
             <h3 className="bike-stats">{`Suspension Travel: ${suspensionTravel}`}</h3>

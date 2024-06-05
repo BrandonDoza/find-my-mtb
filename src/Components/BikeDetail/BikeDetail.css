@@ -6,12 +6,7 @@
     align-items: center;
     border: 2px solid var(--primary-color);
     border-radius: 8px;
-  }
-
-  .close-button {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
+    padding: 5px;
   }
   
   .bike-make {
@@ -23,7 +18,7 @@
   }
   
   .bike-stats {
-    width: 70%;
+    width: 80%;
     font-size: 1.5em;
     margin: 5px;
     color: var(--secondary-color)
@@ -42,5 +37,12 @@
     border: 2px solid var(--primary-color);
     border-radius: 8px;
   }
+
+  .button-nav {
+      width: 100%;
+      display: flex;
+       justify-content: space-between;
+      margin: 5px;
+     }
 
   
