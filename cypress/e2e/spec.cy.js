@@ -72,3 +72,4 @@ describe('Find My Mtb', () => {
     cy.get('.faq').contains('Now What?')
   })
 });
+
