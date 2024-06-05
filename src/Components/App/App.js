@@ -6,6 +6,7 @@ import { fetchBikes } from '../../apiCalls';
 import BikesDisplay from '../BikesDisplay/BikesDisplay'
 import Main from '../MainPage/MainPage';
 import BikeDetail from '../BikeDetail/BikeDetail';
+import MyBikes from '../MyBikes/MyBikes';
 
 function App() {
   const [allBikes, setAllBikes] = useState(['here'])
@@ -45,7 +46,7 @@ function addFavoriteBike(bikeToFind) {
         <Route path="/" element={<Main allBikes={allBikes} />} />
         <Route path="/bikes/allbikes" element={<BikesDisplay allBikes={allBikes} />} />
         <Route path="/bikes/:id" element={<BikeDetail addFavoriteBike={addFavoriteBike}/>}/>
-        <Route path="/bikes/mybikes" element={<BikesDisplay allBikes={allBikes} /> }/>
+        <Route path="/bikes/mybikes" element={<MyBikes allBikes={allBikes} /> }/>
       </Routes>
     </div>
   );
