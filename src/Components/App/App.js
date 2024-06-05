@@ -7,6 +7,7 @@ import BikesDisplay from '../BikesDisplay/BikesDisplay'
 import Main from '../MainPage/MainPage';
 import BikeDetail from '../BikeDetail/BikeDetail';
 import MyBikes from '../MyBikes/MyBikes';
+import Faq from '../Faq/Faq';
 
 function App() {
   const [allBikes, setAllBikes] = useState(['here'])
@@ -47,6 +48,7 @@ function addFavoriteBike(bikeToFind) {
         <Route path="/bikes/allbikes" element={<BikesDisplay allBikes={allBikes} />} />
         <Route path="/bikes/:id" element={<BikeDetail addFavoriteBike={addFavoriteBike}/>}/>
         <Route path="/bikes/mybikes" element={<MyBikes allBikes={allBikes} /> }/>
+        <Route path="/bikes/faq" element={<Faq />} />
       </Routes>
     </div>
   );

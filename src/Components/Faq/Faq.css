@@ -1,0 +1,6 @@
+.faq {
+    width: 70%;
+    border: 4px solid var(--primary-color);
+    border-radius: 8px;
+    margin: 10px;
+}
