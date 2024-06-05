@@ -5,11 +5,9 @@ export async function fetchBikes() {
             throw new Error('There is an issue getting the bikes')
         }
         const data = await response.json()
-        // console.log('data', data)
         return data
     }
     catch(error) {
-        console.log(error)
         throw error;
     }
 }
