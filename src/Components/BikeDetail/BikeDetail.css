@@ -8,12 +8,6 @@
     border-radius: 8px;
     padding: 5px;
   }
-
-  .close-button {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-  }
   
   .bike-make {
     font-size: 4em;

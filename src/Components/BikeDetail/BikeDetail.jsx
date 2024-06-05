@@ -46,10 +46,10 @@ export default function BikeDetail({addFavoriteBike}) {
     return (
         <div className="bike-detail">
             <div className="button-nav">
-            <Link  onClick={handleBack}>
+            <Link  className="close-button" onClick={handleBack}>
             <box-icon color="#0662a0" name='window-close'size="lg"></box-icon>
             </Link>
-            <Link onClick={toggleFavorite}>
+            <Link className="favorite-button" onClick={toggleFavorite}>
             <box-icon name='heart'size='lg' color={favorite ? "red" :  "#0662a0"}></box-icon>
             </Link>
             </div>
