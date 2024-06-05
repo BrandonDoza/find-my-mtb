@@ -5,7 +5,8 @@ export default function ErrorPath() {
     return (
         <div className='error-path'>
         <h1>Error, Page Not Found</h1>
-        <h2>Please Enter a Valid URL Adress</h2>
+        <h2>The Page or Bike You Are Looking For Does Not Exist</h2>
+        <p>Please Enter A Valid URL</p>
         <Link to="/">
             <button className='home-button'>Send Me Home</button>
         </Link>

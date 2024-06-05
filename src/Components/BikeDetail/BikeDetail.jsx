@@ -6,6 +6,7 @@ import PropTypes from "prop-types"
 
 export default function BikeDetail({addFavoriteBike}) {
     const [bike, setBike] = useState({})
+    const [loading, setLoading] = useState(true)
     const id = useParams().id
     const navigate = useNavigate()
     
@@ -18,14 +19,31 @@ export default function BikeDetail({addFavoriteBike}) {
             try {
                 const fetchedBike = await fetchSingleBike(id)
                 console.log('fetch', fetchedBike.bike)
-                setBike(fetchedBike.bike)
+                if (fetchedBike.bike) {
+                    setBike(fetchedBike.bike)
+                } else {
+                    navigate('*')
+                }
+               
             }
             catch(error) {
+                navigate('*')                
                 console.log(error)
             }
+            finally {
+                setLoading(false);
+              }
         }
         loadBike()
     }, [id])
+
+    if (loading) {
+        return <div>Loading...</div>;
+      }
+    
+      if (!bike) {
+        return null;
+      }
 
     async function toggleFavorite() {
         try {
@@ -35,6 +53,9 @@ export default function BikeDetail({addFavoriteBike}) {
             addFavoriteBike(updatedBike.bike)
         }
         catch(error) {
+            if (!bike) {
+                return <div>Loading...</div>;
+            }
             console.log(error)
         }
     }

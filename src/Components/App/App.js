@@ -8,6 +8,7 @@ import Main from '../MainPage/MainPage';
 import BikeDetail from '../BikeDetail/BikeDetail';
 import MyBikes from '../MyBikes/MyBikes';
 import Faq from '../Faq/Faq';
+import ErrorPath from '../ErrorPath/ErrorPath';
 
 function App() {
   const [allBikes, setAllBikes] = useState(['here'])
@@ -45,10 +46,12 @@ function addFavoriteBike(bikeToFind) {
       <Header />
       <Routes>
         <Route path="/" element={<Main allBikes={allBikes} />} />
-        <Route path="/bikes/allbikes" element={<BikesDisplay allBikes={allBikes} />} />
+        <Route path="/allbikes" element={<BikesDisplay allBikes={allBikes} />} />
         <Route path="/bikes/:id" element={<BikeDetail addFavoriteBike={addFavoriteBike}/>}/>
-        <Route path="/bikes/mybikes" element={<MyBikes allBikes={allBikes} /> }/>
-        <Route path="/bikes/faq" element={<Faq />} />
+        <Route path="/mybikes" element={<MyBikes allBikes={allBikes} /> }/>
+        <Route path="/faq" element={<Faq />} />
+        {/* <Route path="/bikes/:*" element={<ErrorPath />} /> */}
+        <Route path="*" element={<ErrorPath />} />
       </Routes>
     </div>
   );
