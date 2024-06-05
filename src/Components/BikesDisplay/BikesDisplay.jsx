@@ -1,6 +1,6 @@
 import BikeCard from "../BikeCard/BikeCard"
 import "./BikesDisplay.css"
-import { NavLink } from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
 import PropTypes from "prop-types"
 
 export default function AllBikes({allBikes, error}) {
@@ -21,7 +21,12 @@ export default function AllBikes({allBikes, error}) {
     })
 
     if (error) {
-        return <div className="all-bikes-error">{`There was a problem loading the bikes, please try again later ${error}`}</div>
+        return <div className="all-bikes-error">
+            <div>{`There was a problem loading the bikes, please try again later ${error}`}</div>
+            <Link to="/">
+            <button className='home-button'>Send Me Home</button>
+        </Link>
+            </div>
     } else {
     return (
         <div className="bikes-display">
