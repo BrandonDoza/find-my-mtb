@@ -2,6 +2,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchSingleBike, updateFavorite } from "../../apiCalls";
 import "./BikeDetail.css"
+import PropTypes from "prop-types"
 
 export default function BikeDetail({addFavoriteBike}) {
     const [bike, setBike] = useState({})
@@ -64,4 +65,8 @@ export default function BikeDetail({addFavoriteBike}) {
             <p className="bike-description">{description}</p>
         </div>
     )
+}
+
+BikeDetail.propTypes = {
+    addFavoriteBike: PropTypes.func.isRequired
 }

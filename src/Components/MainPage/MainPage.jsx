@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import BikesDisplay from "../BikesDisplay/BikesDisplay"
 import "./MainPage.css"
 import About from '../About/About';
+import PropTypes from "prop-types"
 
 export default function Main({ allBikes }) {
     const [filteredBikes, setFilteredBikes] = useState([])
@@ -73,4 +74,8 @@ function handleSubmit(e) {
             </div>
         </div>
     )
+}
+
+Main.propTypes = { 
+    allBikes: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.object)).isRequired
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import BikesDisplay from '../BikesDisplay/BikesDisplay'
 import './MyBikes.css'
+import PropTypes from "prop-types"
 
 export default function MyBikes({allBikes}) {
     const [myBikes, setMyBikes] = useState([])
@@ -19,4 +20,8 @@ useEffect(() => {
             {myBikes.length === 0 ? <h1>You Have No Bikes Yet, Go Add Some!</h1> : <BikesDisplay allBikes={myBikes}/>}
         </div>
     )
+}
+
+MyBikes.propTypes = { 
+    allBikes: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.object)).isRequired
 }
