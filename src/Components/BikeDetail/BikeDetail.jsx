@@ -100,5 +100,5 @@ export default function BikeDetail({addFavoriteBike}) {
 }
 
 BikeDetail.propTypes = {
-    addFavoriteBike: PropTypes.func.isRequired
+    addFavoriteBike: PropTypes.func.isRequired,
 }

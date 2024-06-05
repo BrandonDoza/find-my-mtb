@@ -48,7 +48,7 @@ function addFavoriteBike(bikeToFind) {
       <Routes>
         <Route path="/" element={<Main allBikes={allBikes} error={error} />} />
         <Route path="/allbikes" element={<BikesDisplay allBikes={allBikes} error={error} />} />
-        <Route path="/bikes/:id" element={<BikeDetail addFavoriteBike={addFavoriteBike}/>}/>
+        <Route path="/bikes/:id" element={<BikeDetail addFavoriteBike={addFavoriteBike} />}/>
         <Route path="/mybikes" element={<MyBikes allBikes={allBikes} error={error} /> }/>
         <Route path="/faq" element={<Faq />} />
         {/* <Route path="/bikes/:*" element={<ErrorPath />} /> */}
