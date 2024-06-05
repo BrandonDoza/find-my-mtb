@@ -7,6 +7,8 @@ import PropTypes from "prop-types"
 export default function BikeDetail({addFavoriteBike}) {
     const [bike, setBike] = useState({})
     const [loading, setLoading] = useState(true)
+    const [error, setError] = useState("")
+    
     const id = useParams().id
     const navigate = useNavigate()
     
@@ -28,7 +30,7 @@ export default function BikeDetail({addFavoriteBike}) {
             }
             catch(error) {
                 navigate('*')                
-                console.log(error)
+                setError(error)
             }
             finally {
                 setLoading(false);
@@ -65,6 +67,15 @@ export default function BikeDetail({addFavoriteBike}) {
     }
     const {make, model, suspensionTravel, wheelSize, description, imageUrl,
         ridingStyle, skillLevel, terrain, price, favorite} = bike
+
+    if (error) {
+        return <div className="all-bikes-error">
+        <div>{`There was a problem getting your bike, please try again later ${error}`}</div>
+        <Link to="/">
+        <button className='home-button'>Send Me Home</button>
+    </Link>
+        </div>
+    }
     return (
         <div className="bike-detail">
             <div className="button-nav">
