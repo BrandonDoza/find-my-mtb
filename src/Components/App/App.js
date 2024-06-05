@@ -11,8 +11,9 @@ import Faq from '../Faq/Faq';
 import ErrorPath from '../ErrorPath/ErrorPath';
 
 function App() {
-  const [allBikes, setAllBikes] = useState(['here'])
-  // console.log('all', allBikes)
+  const [allBikes, setAllBikes] = useState([])
+  const [error, setError] = useState("")
+
   useEffect(() =>  {
   async function loadData() {
     try {
@@ -21,7 +22,7 @@ function App() {
       setAllBikes(fetchedData.bikes)
     }
     catch(error) {
-      console.log(error)
+      setError(error)
     }
   }
   loadData()
@@ -46,7 +47,7 @@ function addFavoriteBike(bikeToFind) {
       <Header />
       <Routes>
         <Route path="/" element={<Main allBikes={allBikes} />} />
-        <Route path="/allbikes" element={<BikesDisplay allBikes={allBikes} />} />
+        <Route path="/allbikes" element={<BikesDisplay allBikes={allBikes} error={error} />} />
         <Route path="/bikes/:id" element={<BikeDetail addFavoriteBike={addFavoriteBike}/>}/>
         <Route path="/mybikes" element={<MyBikes allBikes={allBikes} /> }/>
         <Route path="/faq" element={<Faq />} />
