@@ -1,6 +1,7 @@
 import BikeCard from "../BikeCard/BikeCard"
 import "./BikesDisplay.css"
 import { NavLink } from "react-router-dom"
+import PropTypes from "prop-types"
 
 export default function AllBikes({allBikes}) {
     const bikesToDisplay = allBikes.map(bike => {
@@ -24,10 +25,7 @@ export default function AllBikes({allBikes}) {
     )
 }
 
-{/* <div className="bike-card">
-<h1>{make}</h1>
-<h2>{model}</h2>
-<img src={imageUrl}/>
-<p>{suspensionTravel}</p>
-<p>{price}</p>
-</div> */}
+AllBikes.propTypes = { 
+    allBikes: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.object)).isRequired
+}
+
