@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import BikesDisplay from "../BikesDisplay/BikesDisplay"
 import "./MainPage.css"
 import About from '../About/About';
 import PropTypes from "prop-types"
 
-export default function Main({ allBikes }) {
+export default function Main({ allBikes, error }) {
     const [filteredBikes, setFilteredBikes] = useState([])
     console.log("🚀 ~ Main ~ filteredBikes:", filteredBikes)
     const [pullDownData, setPullDownData] = useState({
@@ -39,6 +40,9 @@ function handleSubmit(e) {
     e.preventDefault();
 }
 
+if (error) {
+    return <div className="all-bikes-error">{`There was a problem loading the site, please try again later ${error}`}</div>
+    } else {
     return (
         <div className="main-page">
             <h1>Find The Perfect Bike For You!</h1>
@@ -74,6 +78,7 @@ function handleSubmit(e) {
             </div>
         </div>
     )
+}
 }
 
 Main.propTypes = { 

@@ -46,7 +46,7 @@ function addFavoriteBike(bikeToFind) {
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/" element={<Main allBikes={allBikes} />} />
+        <Route path="/" element={<Main allBikes={allBikes} error={error} />} />
         <Route path="/allbikes" element={<BikesDisplay allBikes={allBikes} error={error} />} />
         <Route path="/bikes/:id" element={<BikeDetail addFavoriteBike={addFavoriteBike}/>}/>
         <Route path="/mybikes" element={<MyBikes allBikes={allBikes} error={error} /> }/>
