@@ -64,4 +64,11 @@ describe('Find My Mtb', () => {
     cy.get('.link').contains('My Bikes').click()
     cy.get('h1').contains('You Have No Bikes Yet, Go Add Some!')
   })
+  it('Should navigate to the faq page and see common questions', () => {
+    cy.get('.link').contains('FAQ').click()
+    cy.get('.faq').contains('Why Should I Get Into Mountain Biking?')
+    cy.get('.faq').contains('Which Bike Is Right For Me?')
+    cy.get('.faq').contains('Is Mountain Biking Hard?')
+    cy.get('.faq').contains('Now What?')
+  })
 });
