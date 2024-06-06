@@ -12,17 +12,14 @@ export default function Main({ allBikes, error }) {
         skillLevel: "",
         terrain: ""
     })
-    // const [terrain, setTerrain] = useState("")
-   console.log('skill', pullDownData.skillLevel)
-   console.log('terrain', pullDownData.terrain)
+
    function filterBikes(name, value) {
     const bikesByFilter = allBikes.filter(bike => {
-        console.log(bike[name], 'here')
         return (bike[name].includes(value))
     })
-    console.log(bikesByFilter, 'filteredBikes')
-    // return bikesByFilter
-    setFilteredBikes(bikesByFilter)
+    return bikesByFilter
+    // console.log(bikesByFilter, 'filteredBikes')
+    // setFilteredBikes(bikesByFilter)
    }
 
    function handleChange(e) {
@@ -46,7 +43,7 @@ if (error) {
     return (
         <div className="main-page">
             <h1>Find The Perfect Bike For You!</h1>
-            <form className="search-form" onSubmit={handleSubmit}>
+            <form className="search-form">
                 <select
                 id="skillLevel"
                 value={pullDownData.skillLevel}
@@ -72,6 +69,12 @@ if (error) {
                     <option value="Race">XC Race Course</option>
                     <option value="Park">Bike Park</option>
                 </select>
+                <Link>
+                <box-icon name='refresh' size='lg' color='#0662a0'></box-icon>
+                </Link>
+                <Link onSubmit={handleSubmit}>
+                <box-icon name='send' size='md' color='#0662a0'></box-icon>
+                </Link>
             </form>
             <div>
                 {filteredBikes.length === 0 ? <About className="filtered-bikes-display"/> : <BikesDisplay allBikes={filteredBikes} />} 
