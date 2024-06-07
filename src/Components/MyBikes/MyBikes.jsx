@@ -4,18 +4,8 @@ import BikesDisplay from '../BikesDisplay/BikesDisplay'
 import './MyBikes.css'
 import PropTypes from "prop-types"
 
-export default function MyBikes({allBikes, error}) {
-    const [myBikes, setMyBikes] = useState([])
-    function getMyBikes() {
-        const filteredByFavorite = allBikes.filter(bike => {
-            return bike.favorite === true
-    })
-    console.log(filteredByFavorite, 'favfilt')
-    setMyBikes(filteredByFavorite)
-}
-useEffect(() => {
-    getMyBikes()
-}, [myBikes.length])
+export default function MyBikes({myBikes, error}) {
+   
 
 if (error) {
     return <div className="all-bikes-error">

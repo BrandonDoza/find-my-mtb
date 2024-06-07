@@ -13,6 +13,22 @@ import ErrorPath from '../ErrorPath/ErrorPath';
 function App() {
   const [allBikes, setAllBikes] = useState([])
   const [error, setError] = useState("")
+  const [myBikes, setMyBikes] = useState([])
+
+  function getMyBikes() {
+      const filteredByFavorite = allBikes.filter(bike => {
+          return bike.favorite === true
+  })
+  console.log(filteredByFavorite, 'favfilt')
+  // return filteredByFavorite
+  setMyBikes(filteredByFavorite)
+}
+console.log('mybikes', myBikes)
+// useEffect(() => {
+//   const userBikes = getMyBikes()
+//   // getMyBikes()
+//   setMyBikes(userBikes)
+// }, [])
 
   useEffect(() =>  {
   async function loadData() {
@@ -20,13 +36,14 @@ function App() {
       const fetchedData = await fetchBikes()
       console.log('fetch', fetchedData)
       setAllBikes(fetchedData.bikes)
+      getMyBikes()
     }
     catch(error) {
       setError(error)
     }
   }
   loadData()
-}, [])
+}, [myBikes])
 
 function addFavoriteBike(bikeToFind) {
   const updatedBikes = allBikes.map(bike => {
@@ -49,7 +66,7 @@ function addFavoriteBike(bikeToFind) {
         <Route path="/" element={<Main allBikes={allBikes} error={error} />} />
         <Route path="/allbikes" element={<BikesDisplay allBikes={allBikes} error={error} />} />
         <Route path="/bikes/:id" element={<BikeDetail addFavoriteBike={addFavoriteBike} />}/>
-        <Route path="/mybikes" element={<MyBikes allBikes={allBikes} error={error} /> }/>
+        <Route path="/mybikes" element={<MyBikes myBikes={myBikes} error={error} /> }/>
         <Route path="/faq" element={<Faq />} />
         {/* <Route path="/bikes/:*" element={<ErrorPath />} /> */}
         <Route path="*" element={<ErrorPath />} />
