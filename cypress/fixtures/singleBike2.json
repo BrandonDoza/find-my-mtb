@@ -1,0 +1,16 @@
+{
+    "bike": {
+            "id": 3,
+            "make": "Santa Cruz",
+            "model": "Nomad",
+            "suspensionTravel": 170,
+            "wheelSize": "MX 29/27.5",
+            "ridingStyle": "Enduro",
+            "terrain": "Rocky chunky and technical",
+            "skillLevel": "Intermediate Advanced",
+            "price": 4999,
+            "description": "Load up the van, hit the road, climb a mountain, hammer it back down, huck the gap, throw the bike back in the van, drive to the bike park and do laps on laps. Hell, you could even rock up to the startline of the world's wildest races.",
+            "imageUrl": "https://www.santacruzbicycles.com/_next/image?url=https%3A%2F%2Fimages.prismic.io%2Fsantacruzbikesstatic%2Fd2cfaf5e-61fe-4fa3-b335-9bccacc38bbd_MY24_Nomad_Blue.jpg%3Fauto%3Dcompress%2Cformat&w=1400&q=99",
+            "favorite": false
+            }
+  }
