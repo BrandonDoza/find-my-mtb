@@ -102,10 +102,10 @@ if (error) {
                     <option value="Race">XC Race Course</option>
                     <option value="Park">Bike Park</option>
                 </select>
-                <Link onClick={resetSearch}>
+                <Link onClick={resetSearch} className="refresh-search">
                 <box-icon name='refresh' size='lg' color='#0662a0'></box-icon>
                 </Link>
-                <Link onClick={handleSubmit}>
+                <Link onClick={handleSubmit} className="submit-search">
                 <box-icon name='send' size='md' color='#0662a0'></box-icon>
                 </Link>
             </form>
