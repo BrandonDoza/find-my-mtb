@@ -1,11 +1,11 @@
 .home-button {
-    font-family: "Teko", sans-serif;
-    font-size: x-large;
-    width: 250px;
-    height: 75px;
-    background-color: var(--complimentary-color);
-    color: var(--secondary-color);
-    border: 2px solid var(--primary-color);
-    border-radius: 8px;
-    cursor: pointer;
+  font-family: "Teko", sans-serif;
+  font-size: x-large;
+  width: 250px;
+  height: 75px;
+  background-color: var(--complimentary-color);
+  color: var(--secondary-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  cursor: pointer;
 }
