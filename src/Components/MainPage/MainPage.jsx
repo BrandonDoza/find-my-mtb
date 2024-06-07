@@ -64,7 +64,7 @@ export default function Main({ allBikes, error }) {
             skillLevel: "",
             terrain: ""
         })
-        localStorage.setItem('pullDownData', JSON.stringify(pullDownData))
+        localStorage.clear()
         setFilteredBikes([])
     }
 
