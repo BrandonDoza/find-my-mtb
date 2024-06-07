@@ -15,25 +15,25 @@ function App() {
   const [error, setError] = useState("");
   const [myBikes, setMyBikes] = useState([]);
 
-  function getMyBikes() {
-    const filteredByFavorite = allBikes.filter((bike) => {
-      return bike.favorite === true;
-    });
-    setMyBikes(filteredByFavorite);
-  }
-
   useEffect(() => {
     async function loadData() {
       try {
         const fetchedData = await fetchBikes();
         setAllBikes(fetchedData.bikes);
-        getMyBikes();
       } catch (error) {
         setError(error);
       }
     }
     loadData();
-  }, [myBikes]);
+  }, []);
+
+  useEffect(() => {
+    function getMyBikes() {
+      const filteredByFavorite = allBikes.filter((bike) => bike.favorite === true);
+      setMyBikes(filteredByFavorite);
+    }
+    getMyBikes();
+  }, [allBikes]);
 
   function addFavoriteBike(bikeToFind) {
     const updatedBikes = allBikes.map((bike) => {
