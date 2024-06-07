@@ -63,7 +63,6 @@ export default function BikeDetail({ addFavoriteBike }) {
   if (!bike) {
     return <div>Loading...</div>;
   }
-
   if (loading) {
     return <div>Loading...</div>;
   }

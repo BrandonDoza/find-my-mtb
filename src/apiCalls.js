@@ -42,18 +42,20 @@ export async function updateFavorite(id) {
   }
 }
 
-export async function postBike(dataToPost) {
-  try {
-    const response = await fetch("http://localhost:3001/api/v1/bikes", {
-      method: "POST",
-      body: JSON.stringify(dataToPost),
-      headers: { "Content-Type": "application/json" },
-    });
-    if (!response.ok) {
-      throw new Error("Trouble adding you bike");
-    }
-    const data = await response.json();
-  } catch (error) {
-    throw error;
-  }
-}
+
+//For Future Use To Add Bike
+// export async function postBike(dataToPost) {
+//   try {
+//     const response = await fetch("http://localhost:3001/api/v1/bikes", {
+//       method: "POST",
+//       body: JSON.stringify(dataToPost),
+//       headers: { "Content-Type": "application/json" },
+//     });
+//     if (!response.ok) {
+//       throw new Error("Trouble adding you bike");
+//     }
+//     const data = await response.json();
+//   } catch (error) {
+//     throw error;
+//   }
+// }

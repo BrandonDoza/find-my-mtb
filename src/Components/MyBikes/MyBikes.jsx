@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import BikesDisplay from "../BikesDisplay/BikesDisplay";
 import "./MyBikes.css";
@@ -17,7 +16,7 @@ export default function MyBikes({ myBikes, error }) {
   } else {
     return (
       <div className="my-bikes">
-        {myBikes.length ? (
+        {myBikes.length === 0 ? (
           <h1>You Have No Bikes Yet, Go Add Some!</h1>
         ) : (
           <BikesDisplay allBikes={myBikes} />
@@ -28,5 +27,5 @@ export default function MyBikes({ myBikes, error }) {
 }
 
 MyBikes.propTypes = {
-  allBikes: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.object)).isRequired,
+  myBikes: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.object)).isRequired,
 };
