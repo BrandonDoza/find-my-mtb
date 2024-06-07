@@ -1,3 +1,4 @@
+@media (min-width: 1201px) {
 .bikes-display {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -10,4 +11,5 @@
     font-size: 3em;
     margin: 35px;
     width: 50%;
+}
 }
