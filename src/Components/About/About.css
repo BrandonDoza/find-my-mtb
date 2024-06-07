@@ -1,6 +1,7 @@
+@media (min-width: 1201px) {
 .about-img {
-    width: 100%;
-    height: 100vh;
+    width: 1150px;
+    height: 600px;
     display: flex;
     justify-content: center;
     background-image: url('http://localhost:3000/Westridge1.jpg');
@@ -25,4 +26,5 @@
     width: 100%;
     display: flex;
     justify-content: center;
+}
 }
