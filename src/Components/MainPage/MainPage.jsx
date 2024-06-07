@@ -48,6 +48,9 @@ export default function Main({ allBikes, error }) {
     e.preventDefault();
     localStorage.setItem("pullDownData", JSON.stringify(pullDownData));
     filterBikes(pullDownData, allBikes);
+    if (filteredBikes.length === 0) {
+        document.getElementById('display-text').innerText = "There are no bikes with that search criteria, please refresh the form and search again!"
+    }
   }
 
   function resetSearch() {
@@ -57,6 +60,7 @@ export default function Main({ allBikes, error }) {
     });
     localStorage.clear();
     setFilteredBikes([]);
+    document.getElementById('display-text').innerText = "Find The Perfect Bike For You!"
   }
 
   if (error) {
@@ -66,7 +70,7 @@ export default function Main({ allBikes, error }) {
   } else {
     return (
       <div className="main-page">
-        <h1>Find The Perfect Bike For You!</h1>
+        <h1 id="display-text">Find The Perfect Bike For You!</h1>
         <form className="search-form">
           <select
             id="skillLevel"
