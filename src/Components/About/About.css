@@ -1,3 +1,32 @@
+.about-img {
+    width: 80%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    background-image: url('http://localhost:3000/Westridge1.jpg');
+    background-size: cover;
+    background-position: top;
+    border-radius: 8px;
+    margin: 25px;
+}
+
+.paragraph {
+    width: 70%;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 10px;
+    margin-top: 20px;
+    font-size: .95em;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+}
+
+.about-card {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 @media (min-width: 601px) and (max-width: 1024px) {
     .about-img {
         width: 80%;
