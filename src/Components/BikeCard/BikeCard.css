@@ -1,4 +1,58 @@
 .bike-card {
+    width: 355px;
+    height: 650px;
+    border: 4px solid var(--primary-color);
+    border-radius: 10px;
+    margin: 5px;
+}
+
+img {
+    width: 90%;
+    object-fit: cover;
+    border: 4px solid var(--secondary-color);
+    border-radius: 10px;
+}
+
+h1, h2 {
+    margin: 5px;
+    font-size: 1.5em;
+}
+
+p {
+    color: var(--secondary-color);
+    font-size: larger;
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    .bike-card {
+        width: 100%;
+        height: 500px;
+        border: 4px solid var(--primary-color);
+        border-radius: 10px;
+        margin: 5px;
+    }
+    
+    img {
+        width: 200px;
+        height: 125px;
+        object-fit: cover;
+        border: 4px solid var(--secondary-color);
+        border-radius: 10px;
+    }
+    
+    h1, h2 {
+        margin: 5px;
+        font-size: 1.5em;
+    }
+    
+    p {
+        color: var(--secondary-color);
+        font-size: larger;
+    }
+    }
+
+@media (min-width: 1025px) {
+.bike-card {
     width: 100%;
     height: 500px;
     border: 4px solid var(--primary-color);
@@ -8,10 +62,8 @@
 
 img {
     width: 350px;
-    /* min-width: 60%; */
     height: 200px;
     object-fit: cover;
-    /* position: absolute; */
     border: 4px solid var(--secondary-color);
     border-radius: 10px;
 }
@@ -24,13 +76,7 @@ p {
     color: var(--secondary-color);
     font-size: larger;
 }
+}
 
 
 
-/* <div className="bike-card">
-<h1>{make}</h1>
-<h2>{model}</h2>
-<img src={img} alt={`picture of a ${make} ${model}`}/>
-<p>{suspensionTravel}</p>
-<p>{price}</p>
-</div> */

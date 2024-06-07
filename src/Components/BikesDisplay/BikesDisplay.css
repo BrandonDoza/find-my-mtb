@@ -1,13 +1,44 @@
 .bikes-display {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.all-bikes-error {
+    font-size: 1.5em;
+    margin: 35px;
+    width: 50%;
+}
+
+@media (min-width: 601px) and (max-width: 800px) {
+    .bikes-display {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+        align-items: center;
+    }
+    
+    .all-bikes-error {
+        font-size: 1.5em;
+        margin: 35px;
+        width: 50%;
+    }
+}
+
+@media (min-width: 801px) {
+.bikes-display {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     align-items: center;
 }
 
-
 .all-bikes-error {
     font-size: 3em;
     margin: 35px;
     width: 50%;
+}
 }
