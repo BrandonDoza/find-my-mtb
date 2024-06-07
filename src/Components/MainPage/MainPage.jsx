@@ -12,30 +12,63 @@ export default function Main({ allBikes, error }) {
         skillLevel: "",
         terrain: ""
     })
-
-   function filterBikes(name, value) {
-    const bikesByFilter = allBikes.filter(bike => {
-        return (bike[name].includes(value))
-    })
-    return bikesByFilter
-    // console.log(bikesByFilter, 'filteredBikes')
-    // setFilteredBikes(bikesByFilter)
-   }
-
-   function handleChange(e) {
-    const selectedValue = e.target.value
-    const selectedName = e.target.name
-    setPullDownData((prevData) => {
-        return {...prevData,
-            [selectedName]: selectedValue
+    // console.log('pullme', pullDownData)
+    useEffect(() => {
+        const savedPullDownData = localStorage.getItem('pullDownData');
+        if (savedPullDownData) {
+            // console.log((savedPullDownData, 'pulldata<><><><><><'))
+            const parsedData = JSON.parse(savedPullDownData);
+            console.log(parsedData, 'parsed<><><><><><><><><')
+            setPullDownData(parsedData);
+            filterBikes(parsedData, allBikes); // Filter bikes with the saved data
+        } else {
+            setFilteredBikes([]); // No filter applied initially
         }
-   })
-   filterBikes(selectedName, selectedValue)
-}
+    }, [allBikes]);
 
-function handleSubmit(e) {
-    e.preventDefault();
-}
+    // useEffect(() => {
+    //     localStorage.setItem('pullDownData', JSON.stringify(pullDownData));
+    //     filterBikes(pullDownData, allBikes);
+    //     console.log('pull form set local', pullDownData)
+    // }, [pullDownData]);
+
+    function filterBikes(data, bikes) {
+        let filtered = bikes;
+        if (data.skillLevel) {
+            filtered = filtered.filter(bike => bike.skillLevel.includes(data.skillLevel));
+        }
+        if (data.terrain) {
+            filtered = filtered.filter(bike => bike.terrain.includes(data.terrain));
+        }
+        setFilteredBikes(filtered);
+        // console.log("🚀 ~ in filterBikes ~ filteredBikes:", filteredBikes)
+    };
+
+    function handleChange(e) {
+        const { name, value } = e.target;
+        setPullDownData(prevData => ({
+            ...prevData,
+            [name]: value
+        }));
+    };
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        // console.log('here')
+        localStorage.setItem('pullDownData', JSON.stringify(pullDownData));
+        filterBikes(pullDownData, allBikes);
+    };
+
+    function resetSearch() {
+        setPullDownData({
+            skillLevel: "",
+            terrain: ""
+        })
+        localStorage.setItem('pullDownData', JSON.stringify(pullDownData))
+        setFilteredBikes([])
+    }
+
+
 
 if (error) {
     return <div className="all-bikes-error">{`There was a problem loading the site, please try again later ${error}`}</div>
@@ -69,10 +102,10 @@ if (error) {
                     <option value="Race">XC Race Course</option>
                     <option value="Park">Bike Park</option>
                 </select>
-                <Link>
+                <Link onClick={resetSearch}>
                 <box-icon name='refresh' size='lg' color='#0662a0'></box-icon>
                 </Link>
-                <Link onSubmit={handleSubmit}>
+                <Link onClick={handleSubmit}>
                 <box-icon name='send' size='md' color='#0662a0'></box-icon>
                 </Link>
             </form>

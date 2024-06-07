@@ -1,6 +1,5 @@
 describe('Find My Mtb', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000');
     cy.intercept('GET', 'http://localhost:3001/api/v1/bikes', {
       statusCode: 200,
       fixture: 'mockdata.json'
@@ -13,6 +12,7 @@ describe('Find My Mtb', () => {
       statusCode: 200,
       fixture: 'singleBike.json'
     })
+    cy.visit('http://localhost:3000');
   });
   it('Successfully Loads', () => {
     cy.visit('http://localhost:3000');
