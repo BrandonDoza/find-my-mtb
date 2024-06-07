@@ -1,6 +1,5 @@
 describe('Find My Mtb', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000');
     cy.intercept('GET', 'http://localhost:3001/api/v1/bikes', {
       statusCode: 200,
       fixture: 'mockdata.json'
@@ -13,6 +12,7 @@ describe('Find My Mtb', () => {
       statusCode: 200,
       fixture: 'singleBike.json'
     })
+    cy.visit('http://localhost:3000');
   });
   it('Successfully Loads', () => {
     cy.visit('http://localhost:3000');
@@ -29,12 +29,17 @@ describe('Find My Mtb', () => {
   it('Should have an about section', () => {
     cy.get('.about-card').contains('We\'re all about helping you find the perfect bike to fit your needs. Whether you\'re new to the sport or a seasoned pro, you\'ve come to the right place!')
   })
-  it('Should be able to select criteria and filter through bikes to display', () => {
+  it('Should be able to select criteria and filter through bikes to display, and see details about that bike.', () => {
     cy.get('h1').contains('Find The Perfect Bike For You!')
     cy.get('#skillLevel').select('Advanced')
-    cy.get('.bikes-display').find('.bike-card').should('have.length', 3)
+    cy.get('#terrain').select('Rocky and Chunky')
+    cy.get('.submit-search').click()
+    cy.get('.bikes-display').find('.bike-card').should('have.length', 1)
+    cy.get('.bike-card').first().contains('Nomad').click()
+    cy.get('.bike-detail').contains('Santa Cruz')
+    cy.get('.close-button').click()
+    cy.get('.bikes-display').find('.bike-card').should('have.length', 1)
     cy.get('.bike-card').first().contains('Nomad')
-    cy.get('.bike-card').last().contains('Ibis')
   })
   it('Should navigate to the all bikes page and display all bikes', () => {
     cy.get('.link').contains('All Bikes').click()
