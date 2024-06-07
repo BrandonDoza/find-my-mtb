@@ -27,5 +27,5 @@ export default function MyBikes({ myBikes, error }) {
 }
 
 MyBikes.propTypes = {
-  myBikes: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.object)).isRequired,
+  myBikes: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

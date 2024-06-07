@@ -34,5 +34,5 @@ export default function BikesDisplay({ allBikes, error }) {
 }
 
 BikesDisplay.propTypes = {
-  allBikes: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.object)).isRequired,
+  allBikes: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

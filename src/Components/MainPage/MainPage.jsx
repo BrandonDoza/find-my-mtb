@@ -12,6 +12,8 @@ export default function Main({ allBikes, error }) {
     terrain: "",
   });
 
+//   console.log(filteredBikes, 'filt')
+
   useEffect(() => {
     const savedPullDownData = localStorage.getItem("pullDownData");
     if (savedPullDownData) {
@@ -48,9 +50,6 @@ export default function Main({ allBikes, error }) {
     e.preventDefault();
     localStorage.setItem("pullDownData", JSON.stringify(pullDownData));
     filterBikes(pullDownData, allBikes);
-    if (filteredBikes.length === 0) {
-        document.getElementById('display-text').innerText = "There are no bikes with that search criteria, please refresh the form and search again!"
-    }
   }
 
   function resetSearch() {
@@ -60,7 +59,6 @@ export default function Main({ allBikes, error }) {
     });
     localStorage.clear();
     setFilteredBikes([]);
-    document.getElementById('display-text').innerText = "Find The Perfect Bike For You!"
   }
 
   if (error) {
@@ -118,5 +116,5 @@ export default function Main({ allBikes, error }) {
 }
 
 Main.propTypes = {
-  allBikes: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.object)).isRequired,
+  allBikes: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
