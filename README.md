@@ -21,6 +21,12 @@ This application is designed to assist individuals in their search for a new mou
 - Favorite Bikes: Users have the ability to favorite bikes, allowing them to easily save and view these selections later in the "My Bikes" section.
 - Browse All Bikes: In addition to personalized searches, users can explore the entire database of bikes. This feature allows users to browse all available options and perform actions such as viewing detailed information and favoriting bikes.
 
+  ## Deployed Site:
+  Please visit Find My Mtb at
+  https://find-my-mtb.vercel.app/
+
+![Screen Recording 2024-06-08 at 2 46 10 PM](https://github.com/BrandonDoza/find-my-mtb/assets/141676838/8ab9be96-fdd9-492c-ad29-4c09b88034c4)
+
 ### Installation: 
 - git clone `https://github.com/BrandonDoza/find-my-mtb.git` - for https
 - git clone `git@github.com:BrandonDoza/find-my-mtb.git` - for ssh
