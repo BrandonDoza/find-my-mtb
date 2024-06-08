@@ -25,7 +25,11 @@ This application is designed to assist individuals in their search for a new mou
   Please visit Find My Mtb at
   https://find-my-mtb.vercel.app/
 
-![Screen Recording 2024-06-08 at 2 46 10 PM](https://github.com/BrandonDoza/find-my-mtb/assets/141676838/8ab9be96-fdd9-492c-ad29-4c09b88034c4)
+  
+
+https://github.com/BrandonDoza/find-my-mtb/assets/141676838/b30f5b14-3f60-456b-a427-61f2e392e031
+
+
 
 ### Installation: 
 - git clone `https://github.com/BrandonDoza/find-my-mtb.git` - for https
