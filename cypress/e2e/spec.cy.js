@@ -1,25 +1,25 @@
 describe('Find My Mtb', () => {
   beforeEach(() => {
-    cy.intercept('GET', 'http://localhost:3001/api/v1/bikes', {
+    cy.intercept('GET', 'https://find-my-mtb-9n78cpo73-brandon-dozas-projects.vercel.app/api/v1/bikes', {
       statusCode: 200,
       fixture: 'mockdata.json'
     });
-    cy.intercept('GET', 'http://localhost:3001/api/v1/bikes/1', {
+    cy.intercept('GET', 'https://find-my-mtb-9n78cpo73-brandon-dozas-projects.vercel.app/api/v1/bikes/1', {
       statusCode: 200,
       fixture: 'singleBike.json'
     });
-    cy.intercept('GET', 'http://localhost:3001/api/v1/bikes/3', {
+    cy.intercept('GET', 'https://find-my-mtb-9n78cpo73-brandon-dozas-projects.vercel.app/api/v1/bikes/3', {
       statusCode: 200,
       fixture: 'singleBike2.json'
     });
-    cy.intercept('PATCH', 'http://localhost:3001/api/v1/bikes/3', {
+    cy.intercept('PATCH', 'https://find-my-mtb-9n78cpo73-brandon-dozas-projects.vercel.app/api/v1/bikes/3', {
       statusCode: 200,
       fixture: 'singleBike2.json'
     })
-    cy.visit('http://localhost:3000');
+    cy.visit('https://find-my-mtb.vercel.app/');
   });
   it('Successfully Loads', () => {
-    cy.visit('http://localhost:3000');
+    cy.visit('https://find-my-mtb.vercel.app/');
   });
   it('Should have a page title and navigation links', () => {
     cy.get('.header').contains('Find My Mtb');
@@ -47,7 +47,9 @@ describe('Find My Mtb', () => {
   })
   it('Should navigate to the all bikes page and display all bikes', () => {
     cy.get('.link').contains('All Bikes').click()
-    cy.get('.bikes-display').find('.bike-card').should('have.length', 5)
+    cy.wait(2000)
+    cy.get('.bike-card').its('length')
+    cy.get('.bikes-display').find('.link .bike-card').should('have.length', 5)
     cy.get('.bike-card').first().contains('Hightower')
     cy.get('.bike-card').last().contains('Exie')
   })
