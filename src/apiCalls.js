@@ -1,8 +1,8 @@
 export async function fetchBikes() {
   try {
-    const response = await fetch("https://find-my-mtb-9n78cpo73-brandon-dozas-projects.vercel.app/api/v1/bikes"); 
+    const response = await fetch('https://find-my-mtb-jit13fut3-brandon-dozas-projects.vercel.app/api/v1/bikes'); 
     if (!response.ok) {
-      throw new Error("There is an issue getting the bikes");
+      throw new Error('There is an issue getting the bikes');
     }
     const data = await response.json();
     return data;
@@ -13,9 +13,9 @@ export async function fetchBikes() {
 
 export async function fetchSingleBike(id) {
   try {
-    const response = await fetch(`https://find-my-mtb-9n78cpo73-brandon-dozas-projects.vercel.app/api/v1/bikes/${id}`); 
+    const response = await fetch(`https://find-my-mtb-jit13fut3-brandon-dozas-projects.vercel.app/api/v1/bikes/${id}`); 
     if (!response.ok) {
-      throw new Error("The bike you requested could not be found");
+      throw new Error('The bike you requested could not be found');
     }
     const data = await response.json();
     return data;
@@ -27,10 +27,10 @@ export async function fetchSingleBike(id) {
 
 export async function updateFavorite(id) {
   try {
-    const response = await fetch(`https://find-my-mtb-9n78cpo73-brandon-dozas-projects.vercel.app/api/v1/bikes/${id}`, {
+    const response = await fetch(`https://find-my-mtb-jit13fut3-brandon-dozas-projects.vercel.app/api/v1/bikes/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-      }); // for vercel deployment
+      }); 
     if (!response.ok) {
       throw new Error("Bike not found");
     }
